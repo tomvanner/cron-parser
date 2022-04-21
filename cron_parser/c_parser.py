@@ -1,3 +1,7 @@
+"""Contains all of the functionality required to parse and display a cron
+    expression - see parse_cron.
+"""
+
 from typing import List
 from .exceptions import (
     ValidationError,

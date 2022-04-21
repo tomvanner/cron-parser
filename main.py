@@ -1,3 +1,8 @@
+"""
+The main entry point for parsing a cron expression. Invoke by executing
+`python main.py "<cron expression>"` from the command line in the root directory.
+"""
+
 import sys
 import cron_parser
 
