@@ -1,3 +1,6 @@
+"""Stores module constants and general configuration variables.
+"""
+
 ALLOWED_VALUES = {
     "minute": [i for i in range(0, 60)],
     "hour": [i for i in range(0, 24)],
