@@ -1,6 +1,3 @@
-"""Contains unit tests for the cron parser.
-"""
-
 import unittest
 import cron_parser
 from cron_parser.exceptions import (
