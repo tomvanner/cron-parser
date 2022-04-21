@@ -1,4 +1,4 @@
-from typing import List, TypedDict
+from typing import List
 from .exceptions import (
     ValidationError,
     InvalidCronValueError,
@@ -109,7 +109,7 @@ def get_nearest_weekday(day_of_month: int, allowed_values: List[str]) -> str:
     return f"Nearest weekday to the {str(day_of_month)} of the month"
 
 
-def expand_list_values(elements: List[str], allowed_values: List[str]) -> List[str]:
+def expand_list_values(elements: List[str], allowed_values: List[str]) -> List[int]:
     """Get list of expanded values for the given cron list expression.
 
     Arguments:
@@ -221,7 +221,9 @@ def parse_step(
         start_index = allowed_values.index(start_exp)
         return [i for i in allowed_values[start_index:] if i % increment_val == 0]
     except ValueError:
-        raise InvalidCronValueError("")
+        raise InvalidCronValueError(
+            "The step start expression is not in the allowed values"
+        )
 
 
 def parse_cron(cron_exp: str) -> dict:
