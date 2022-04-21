@@ -1,9 +1,9 @@
 import unittest
 import cron_parser
-# from cron_parser.exceptions import (
-#     InvalidCronValueError,
-#     InvalidCronExpressionError
-# )
+from cron_parser.exceptions import (
+    InvalidCronValueError,
+    InvalidCronExpressionError
+)
 
 
 class CronParserTest(unittest.TestCase):
@@ -167,18 +167,18 @@ class CronParserTest(unittest.TestCase):
             cron_parser.generate_table(cron_data)
         )
     
-    # def test_incomplete_input(self):
-    #     # Parse an argument with only 5 of the 6 required fields
-    #     with self.assertRaises(InvalidCronExpressionError) as cm:
-    #         cron_parser.parse_cron("1 1 6W 1 1")
+    def test_incomplete_input(self):
+        # Parse an argument with only 5 of the 6 required fields
+        with self.assertRaises(InvalidCronExpressionError) as cm:
+            cron_parser.parse_cron("1 1 6W 1 1")
 
-    #     self.assertEqual
-    #     (
-    #         "Please parse an argument in the format"
-    #         " <minute> <hour> <day of month> <month> <day of week> <command>",
-    #         str(cm.exception)
-    #     )
-    
+        self.assertEqual
+        (
+            "Please parse an argument in the format"
+            " <minute> <hour> <day of month> <month> <day of week> <command>",
+            str(cm.exception)
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
